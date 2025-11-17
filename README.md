@@ -25,7 +25,7 @@ In order to create branching dialogue, the player must create one or more respon
 The “response text” field is the text that the player will have the option to select. The “dialogue object” field is the dialogue that will be triggered.   
 
 
-![alt text](https://github.com/Salvale/Triple-Affirmative-Narrative-System/tree/main/images/tree-structure.png "tree image")
+![tree image](https://github.com/Salvale/Triple-Affirmative-Narrative-System/blob/main/images/tree-structure.PNG "tree image")
 Further branching responses can be nested into the dialogue objects that are associated with a response, and this can be repeated ad infinitum. 
 
 **For all of the following uses, a “scene manager” singleton object is needed. This object must be tagged “GameController,” and have the “Var Tracker” script attached to it.** 
@@ -47,11 +47,11 @@ If these three things are done right, the conditional will be properly evaluated
 In order to have an NPC have different starting points in dialogue, you must add multiple dialogue objects to the NPC’s Dialogue Activator script. If there are *n* dialogue starts, there must be exactly *n \- 1* conditions. The lowest dialogue object will be the “default” dialogue object.   
 These dialogue objects will be evaluated one by one, from top to bottom, against their conditionals (i.e., the first dialogue object is associated with the first conditional, etc.).   
 
-![alt text](https://github.com/Salvale/Triple-Affirmative-Narrative-System/tree/main/images/twoDialogueStarts.png "Top goes")
+![two dialogue starts](https://github.com/Salvale/Triple-Affirmative-Narrative-System/blob/main/images/twoDialogueStarts.png "Top goes")
 In this example, Element 0 will be associated with the condition TalkedCount \> 0\. Element 1 is not associated with any conditional.   
 The first dialogue object with a conditional that evaluates to “True” is the one that will be displayed.
 
-![alt text](https://github.com/Salvale/Triple-Affirmative-Narrative-System/tree/main/images/priorityExplanation.png "tree image2")
+![priority diagram](https://github.com/Salvale/Triple-Affirmative-Narrative-System/blob/main/images/priorityExplanation.PNG "tree image2")
 If none of the conditions evaluate to True, then the dialogue object in the lowest position will always be shown. For this reason, it is nonsensical to give the lowest dialogue object a conditional. 
 
 ### 5\. Tracking Player Responses & Interactions
@@ -70,6 +70,6 @@ Whenever the dialogueObject is triggered, all “Trigger Events” will occur an
 
 The Narrative System is capable of loading different “suites” of items when a scene is loaded, based on certain variables in the varTracker. To do this, take the game objects you want to conditionally load, and drag them into the “suites” field. For each suite you include, add a condition that will be associated with that suite.  
 
-![alt text](https://github.com/Salvale/Triple-Affirmative-Narrative-System/tree/main/images/suites.png "suites")
+![suites demonstration](https://github.com/Salvale/Triple-Affirmative-Narrative-System/blob/main/images/suites.PNG "suites")
 In this example, SuiteA will be loaded when TalkedCount \> 0, and SuiteB will be loaded when Talked Count \== 0\.  
 If the conditionals are not mutually exclusive, then all suites whose conditions are met will be loaded at once. If a suite does not have a conditional associated with it, it will never be loaded. This means that the list of conditions should always be the same length as the list of suites. 
